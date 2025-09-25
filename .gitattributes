@@ -1,0 +1,30 @@
+# Normalisation des fins de ligne
+# Par défaut: LF pour tous les fichiers texte
+* text=auto eol=lf
+
+# Garder CRLF pour les scripts Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Garder CRLF pour fichiers projets Windows si besoin
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+
+# Traiter ces fichiers comme binaires (pas de conversion EOL)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.ttf binary
+*.otf binary
+*.aab binary
+*.apk binary
+
+# iOS/Xcode (laisser Git gérer, sans conversion arbitraire)
+*.pbxproj -text
+*.xcworkspace/** -text
+*.xcodeproj/** -text
+
