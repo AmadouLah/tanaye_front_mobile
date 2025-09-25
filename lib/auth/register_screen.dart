@@ -108,21 +108,11 @@ class RegisterScreen extends StatelessWidget {
                               role: _roleCtrl.text.trim(),
                             );
                             if (errorMsg == null) {
-                              final sendErr = await _auth.resendVerification(
-                                _emailCtrl.text.trim(),
+                              // L'email de vérification est déjà envoyé automatiquement par le backend
+                              Get.toNamed(
+                                '/verify',
+                                arguments: {'email': _emailCtrl.text.trim()},
                               );
-                              if (sendErr == null) {
-                                Get.toNamed(
-                                  '/verify',
-                                  arguments: {'email': _emailCtrl.text.trim()},
-                                );
-                              } else {
-                                Get.snackbar(
-                                  'Erreur',
-                                  sendErr,
-                                  snackPosition: SnackPosition.BOTTOM,
-                                );
-                              }
                             } else {
                               Get.snackbar(
                                 'Erreur',
