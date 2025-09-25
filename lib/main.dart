@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tanaye_front_mobile/auth/loading_page.dart';
 import 'package:tanaye_front_mobile/auth/login_page.dart';
 import 'package:tanaye_front_mobile/auth/register_screen.dart';
+import 'package:tanaye_front_mobile/auth/verify_code_page.dart';
 import 'package:tanaye_front_mobile/home/home_screen.dart';
 import 'package:tanaye_front_mobile/router/auth_guard.dart';
 
@@ -29,6 +30,14 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(name: '/login', page: () => LoginScreen()),
         GetPage(name: '/register', page: () => RegisterScreen()),
+        GetPage(
+          name: '/verify',
+          page: () {
+            final args = Get.arguments as Map<String, dynamic>?;
+            final email = args?['email']?.toString() ?? '';
+            return VerifyCodePage(email: email);
+          },
+        ),
         GetPage(
           name: '/home',
           page: () => const HomeScreen(),

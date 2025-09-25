@@ -42,7 +42,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   get: ^4.6.6
   cupertino_icons: ^1.0.8
-
+  emailjs: ^4.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

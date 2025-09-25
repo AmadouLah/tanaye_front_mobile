@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tanaye_front_mobile/utils/shared_preference_service.dart';
+import 'package:tanaye_front_mobile/home/account_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,19 +42,39 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: _buildHeader(context)),
-          SliverToBoxAdapter(child: const SizedBox(height: 12)),
-          SliverToBoxAdapter(child: _buildActionCards(context)),
-          SliverToBoxAdapter(child: const SizedBox(height: 16)),
-          SliverToBoxAdapter(child: _buildSmallCards(context)),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-        ],
-      ),
+      body:
+          _currentTab == 1
+              ? _buildHome()
+              : _currentTab == 2
+              ? const AccountScreen()
+              : _buildActivities(),
       bottomNavigationBar: _buildBottomBar(),
     );
   }
+
+  Widget _buildHome() {
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(child: _buildHeader(context)),
+        SliverToBoxAdapter(child: const SizedBox(height: 12)),
+        SliverToBoxAdapter(child: _buildActionCards(context)),
+        SliverToBoxAdapter(child: const SizedBox(height: 16)),
+        SliverToBoxAdapter(child: _buildSmallCards(context)),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
+      ],
+    );
+  }
+
+  Widget _buildActivities() {
+    return Center(
+      child: Text(
+        'Activities',
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
+  // Onglet Account déplacé dans AccountScreen
 
   Widget _buildHeader(BuildContext context) {
     return Container(
