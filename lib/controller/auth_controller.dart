@@ -258,8 +258,9 @@ class AuthController extends GetxController {
     if (email.trim().isEmpty) return 'L\'email est requis';
     if (telephone.trim().isEmpty) return 'Le téléphone est requis';
     if (motDePasse.isEmpty) return 'Le mot de passe est requis';
-    if (confirmationMotDePasse.isEmpty)
+    if (confirmationMotDePasse.isEmpty) {
       return 'La confirmation du mot de passe est requise';
+    }
     if (role.trim().isEmpty) return 'Le rôle est requis';
 
     if (motDePasse != confirmationMotDePasse) {

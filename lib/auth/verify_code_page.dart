@@ -6,7 +6,7 @@ import 'package:tanaye_front_mobile/controller/auth_controller.dart';
 class VerifyCodePage extends StatefulWidget {
   final String email;
 
-  VerifyCodePage({super.key, required this.email});
+  const VerifyCodePage({super.key, required this.email});
 
   @override
   State<VerifyCodePage> createState() => _VerifyCodePageState();
