@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tanaye_front_mobile/utils/shared_preference_service.dart';
 import 'package:tanaye_front_mobile/home/account_screen.dart';
+import 'package:tanaye_front_mobile/home/activities_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ? _buildHome()
               : _currentTab == 2
               ? const AccountScreen()
-              : _buildActivities(),
+              : const ActivitiesScreen(),
       bottomNavigationBar: _buildBottomBar(),
     );
   }
@@ -62,15 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
         SliverToBoxAdapter(child: _buildSmallCards(context)),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
-    );
-  }
-
-  Widget _buildActivities() {
-    return Center(
-      child: Text(
-        'Activities',
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-      ),
     );
   }
 
@@ -98,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 8),
           CircleAvatar(
             radius: 34,
-            backgroundColor: Colors.white.withOpacity(0.9),
+            backgroundColor: Colors.white.withValues(alpha: 0.9),
             child: Text(
               _initials,
               style: const TextStyle(
