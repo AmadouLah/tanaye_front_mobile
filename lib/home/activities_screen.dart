@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_constants.dart';
+import 'send_package_page.dart';
 
 class ActivitiesScreen extends StatefulWidget {
   const ActivitiesScreen({super.key});
@@ -212,7 +213,10 @@ class _ActivitiesScreenState extends State<ActivitiesScreen>
   void _handleAction(String action) {
     switch (action) {
       case 'expedition':
-        // Implémenter la logique pour commencer un envoi
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SendPackagePage()),
+        );
         break;
       case 'voyage':
         // Implémenter la logique pour commencer un voyage
